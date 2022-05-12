@@ -1,0 +1,19 @@
+{
+    "name": "wikipedia",
+    "version": "1.0.0",
+    "description": "Wikipedia module for the Painfull bot",
+    "main": "src/index.js",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Painfull-Community/wikipedia.git"
+    },
+    "author": "Vukky",
+    "license": "UNLICENCED",
+    "bugs": {
+      "url": "https://github.com/Painfull-Community/wikipedia/issues"
+    },
+    "homepage": "https://github.com/Painfull-Community/wikipedia#readme",
+    "dependencies": {
+      "axios": "^0.27.2"
+    }
+}
