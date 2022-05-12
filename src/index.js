@@ -1,6 +1,6 @@
 module.exports = {
     execute: function (message, args) {
-        axios.get(`https://en.wikipedia.org/api/rest_v1/page/${args[0] == undefined ? "random/summary" : "summary/" + args[0].replace("/", "%2F")}`)
+        axios.get(`https://en.wikipedia.org/api/rest_v1/page/${args[0] == undefined ? "random/summary" : "summary/" + args.join("_").replace("/", "%2F")}`)
 			.then(json => {
 				const isDisambiguation = json.data.description != undefined && json.data.description == "Topics referred to by the same term";
 				const isSection = json.request.res.responseUrl.includes("#");
