@@ -1,7 +1,6 @@
-const axios = require("axios");
-
 module.exports = {
     execute: function (message, args) {
+        const axios = require("axios");
         axios.get(`https://en.wikipedia.org/api/rest_v1/page/${args[0] == undefined ? "random/summary" : "summary/" + args.join("_").replace("/", "%2F")}`)
 			.then(json => {
 				const isDisambiguation = json.data.description != undefined && json.data.description == "Topics referred to by the same term";
