@@ -12,5 +12,12 @@ module.exports = {
 				}
 				return message.reply(`**${json.data.title}**: ${json.data.extract == "" ? json.data.description == undefined ? `Sorry, but no information about this article is available. You can ask Vukky to add a short description, or read the article at <${json.data.content_urls.desktop.page}>.` : json.data.description + `. For more information, read the article at <${json.data.content_urls.desktop.page}>.` : json.data.extract + ` For more information, read the article at <${json.data.content_urls.desktop.page}>.`}`)
 			})
+			.catch(function(error) {
+				if(error && error.response && error.response.data && error.response.data.detail) return message.reply({ content: `${articleName == null ? "" : `**${articleName}**: `}${error.response.data.detail}\nContact Vukky for more details.`});
+				if(error && error.response && error.response.data && error.response.data.title) return message.reply({ content: `${articleName == null ? "" : `**${articleName}**: `}${error.response.data.title}\nContact Vukky for more details.`});
+				if(error && error.response && error.response.status && error.response.status == 404) return message.reply({ content: "The wiki you are trying to access does not support Pukkie.\nContact Vukky for more details."});
+				console.error(error);
+				message.reply({ content: "Welp! Something went wrong."});
+			});
     }
 }
