@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 module.exports = {
     execute: function (message, args) {
         axios.get(`https://en.wikipedia.org/api/rest_v1/page/${args[0] == undefined ? "random/summary" : "summary/" + args.join("_").replace("/", "%2F")}`)
