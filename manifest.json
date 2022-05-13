@@ -6,5 +6,6 @@
     "min_pain_version": "1.0.0",
     "entrypoints": {
         "wikipedia": "src/index.js"
-    }
+    },
+    "locals": "src/locals.json"
 }

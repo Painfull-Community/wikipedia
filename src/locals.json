@@ -1,0 +1,9 @@
+{
+    "moduleName": "wikipedia",
+    "locals": {
+        "en": {
+            "section": "It looks like you have been redirected to a section of an article, or tried to access one. Sections are not currently supported.\nPlease view the page at <$0>.",
+            "disambiguation": "**$0** refers to multiple things. Try something more specific listed here: <$1>"
+        }
+    }
+}
