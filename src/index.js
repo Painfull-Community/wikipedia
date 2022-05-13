@@ -11,7 +11,7 @@ module.exports = {
 					const sectionName = new URL(json.request.res.responseUrl).hash;
 					return message.reply({ content: cls.getString("wikipedia", "section").replace("$0", json.data.content_urls.desktop.page + sectionName), allowedMentions: { parse: [] }});
 				}
-				return message.reply({ content: `**${json.data.title}**: ${json.data.extract == "" ? json.data.description == undefined ? `Sorry, but no information about this article is available. You can read the article at <${json.data.content_urls.desktop.page}>.` : json.data.description + `. For more information, read the article at <${json.data.content_urls.desktop.page}>.` : json.data.extract + ` For more information, read the article at <${json.data.content_urls.desktop.page}>.`}`, allowedMentions: { parse: [] }})
+				return message.reply({ content: `**${json.data.title}**: ${json.data.extract == "" ? json.data.description == undefined ? cls.getString("wikipedia", "noinfo").replace("$0", json.data.content_urls.desktop.page) : json.data.description + ". " + cls.getString("wikipedia", "moreinfo").replace("$0", json.data.content_urls.desktop.page) : json.data.extract + " " + cls.getString("wikipedia", "moreinfo").replace("$0", json.data.content_urls.desktop.page)}`, allowedMentions: { parse: [] }})
 			})
 			.catch(function(error) {
 				if(error && error.response && error.response.data && error.response.data.detail) return message.reply({ content: `${args[0] == null ? "" : `**${args.join(" ")}**: `}${error.response.data.detail}`, allowedMentions: { parse: [] }});
