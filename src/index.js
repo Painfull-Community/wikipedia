@@ -1,5 +1,5 @@
 module.exports = {
-    execute: function (message, args, util) {
+    execute: function (message, args, utils) {
         const axios = require("axios");
 		var cls = utils.apis["core-cls"].api;
         axios.get(`https://en.wikipedia.org/api/rest_v1/page/${args[0] == undefined ? "random/summary" : "summary/" + args.join("_").replace("/", "%2F")}`)
